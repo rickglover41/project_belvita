@@ -11,7 +11,6 @@ d_avg_fte_rn = None # average FTE per RN (usually expressed as 0.9 or 1.0)
 d_flo_rn_fee = None # Florence RN fee (currently set at $50k)
 d_system_name = None
 d_data_sources = None
-d_cl_hrly = None # contracted labor hourly rate (for General Estimator)
 
 # last revision info (only UPDATE when sources and/or pricing change)
 model_info = "Last revision on 9/17/2025"
@@ -45,7 +44,7 @@ nb = Florence(clc=9309771, clh=61030, cl_fte=152.54, slr=88.32, rn_share_cl=rn_s
 
 
 def default_values(flo_class):
-    global d_clc, d_clh, d_cl_fte, d_slr, d_rn_share_cl, d_avg_fte_rn, d_flo_rn_fee, d_system_name, d_data_sources, d_cl_hrly
+    global d_clc, d_clh, d_cl_fte, d_slr, d_rn_share_cl, d_avg_fte_rn, d_flo_rn_fee, d_system_name, d_data_sources
     d_clc = flo_class.clc
     d_clh = flo_class.clh
     d_cl_fte = flo_class.cl_fte
@@ -55,8 +54,6 @@ def default_values(flo_class):
     d_flo_rn_fee = flo_class.flo_rn_fee
     d_system_name = flo_class.system_name
     d_data_sources = flo_class.data_sources
-    d_cl_hrly = flo_class.d_cl_hrly
-
 
 # streamlit code
 def main():
@@ -76,7 +73,7 @@ def main():
         
         # estimator calculations
         intermediate_labor_hours_needed = (estimator_labor_fte * 2080) * estimator_share_rn * 3
-        estimator_rn_need_annually = intermediate_labor_hours_needed / (2080 * estimator_average_fte_per_nuse)
+        estimator_rn_need_annually = intermediate_labor_hours_needed / (2080 * estimator_average_fte_per_nurse)
         estimator_agency_cost_3_yr = (estimator_labor_rate - estimator_estimator_current_rn_rate) * intermediate_labor_hours_needed
         estimator_florence_placement_costs = flo_placement_cost * estimator_rn_need_annually
         intermediate_hourly_diff_agency_flo = (estimator_labor_rate - estimator_current_rn_rate) - (estimator_florence_placement_costs / intermediate_labor_hours_needed)
