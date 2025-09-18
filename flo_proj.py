@@ -68,8 +68,8 @@ def main():
         estimator_labor_rate = st.number_input(label="Contracted Labor Hourly Rate", min_value=0.00, max_value=1000.00, step=1.00, value=0.00)
         estimator_labor_fte = st.number_input(label="Contracted Labor FTEs", min_value=0.0, max_value=20000.0, step=1.0, value=0.0)
         estimator_current_rn_rate = st.number_input(label="Average Facility RN Labor Hourly Rate", min_value=0.00, max_value=0.00, value=0.00)
-        estimator_share_rn = st.number_input(label="Estimated RN Share of Contract Labor", min_value = 0.00, max_value=1.00, step=0.01, value=d_rn_share_cl)
-        estimator_average_fte_per_nurse = st.number_input(label="Average FTE/Nurse", min_value=0.00, max_value=1.00, step=0.10, value=d_avg_fte_rn)
+        estimator_share_rn = st.number_input(label="Estimated RN Share of Contract Labor", min_value = 0.00, max_value=1.00, step=0.01, value=0.80)
+        estimator_average_fte_per_nurse = st.number_input(label="Average FTE/Nurse", min_value=0.00, max_value=1.00, step=0.05, value=0.90)
         
         # estimator calculations
         intermediate_labor_hours_needed = (estimator_labor_fte * 2080) * estimator_share_rn * 3
