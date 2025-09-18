@@ -96,7 +96,7 @@ def main():
     st.sidebar.caption("Data entries are defaulted from data sources, but can be edited to change the projections")
     st.sidebar.caption(d_data_sources)
 
-    st.write(f"**{d_system_name}**")
+    st.subheader(d_system_name)
     st.write("")
     st.markdown("**[red]RN Needs and Agency Costs**")
     st.write(f"Direct Patient Care Contracted Labor Hourly Rate: **${direct_patient_care_hourly_rate:,.2f}**")
@@ -111,7 +111,7 @@ def main():
     st.write(f"Florence Hourly Differential (Fee Amortized) Over Non_Contracted Direct Patient Care Rate: **${flo_hourly_diff:,.2f}**")
     st.write(f"Florence RN Hourly Savings Over Agency RN: **${hourly_diff_agency_flo:,.2f}**")
     st.write("")
-    st.write(f"**[green]Total Estimated RN Staffing Savings Opportunity: ${total_savings_opp:,.2f}**")
+    st.subheader(f"Total Estimated RN Staffing Savings Opportunity: ${total_savings_opp:,.2f}")
     
 
 if __name__ == "__main__":
