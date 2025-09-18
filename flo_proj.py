@@ -96,19 +96,19 @@ def main():
     st.sidebar.caption("Data entries are defaulted from data sources, but can be edited to change the projections")
     st.sidebar.caption(d_data_sources)
 
-    st.write(d_system_name)
-    st.write("RN Needs and Agency Costs")
+    st.write(f"**d_system_name**")
+    st.markdown("**[colored red]RN Needs and Agency Costs**")
     st.write(f"Direct Patient Care Contracted Labor Hourly Rate: ${direct_patient_care_hourly_rate:,.2f}")
     st.write(f"Estimated RN Contracted Labor Hours Annually: {est_rn_contracted_labor_hrs_annually:,.2f}")
     st.write(f"Estimated RN Need Annually: {est_rn_need_annually:,.2f}")
     st.write(f"Agency RN Hourly Differential Over Non-Contracted Direct Patient Care Rate: ${agency_rn_hourly_diff:,.2f}")
     st.write(f"Agency Hours Used Over 3 Years (Flat): {agency_hours_replaced:,.2f}")
     st.write(f"Agency RN Cost Over 3 Years: ${agency_rn_diff_3_yr:,.2f}")
-    st.write("How Florence Helps")
+    st.markdown("**[colored green]How Florence Helps**")
     st.write(f"Florence Placement Fee Per Nurse: ${flo_placement_cost:,.2f}")
     st.write(f"Florence Hourly Differential (Fee Amortized) Over Non_Contracted Direct Patient Care Rate: ${flo_hourly_diff:,.2f}")
     st.write(f"Florence RN Hourly Savings Over Agency RN: ${hourly_diff_agency_flo:,.2f}")
-    st.metric(f"Total Estimated RN Staffing Savings Opportunity: ${total_savings_opp:,.2f}")
+    st.write(f"**Total Estimated RN Staffing Savings Opportunity: ${total_savings_opp:,.2f}**")
     
 
 if __name__ == "__main__":
