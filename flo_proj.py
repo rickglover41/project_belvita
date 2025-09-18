@@ -76,9 +76,7 @@ def main():
         estimator_rn_need_annually = intermediate_labor_hours_needed / (2080 * estimator_average_fte_per_nurse)
         estimator_agency_cost_3_yr = (estimator_labor_rate - estimator_current_rn_rate) * intermediate_labor_hours_needed * 3
         estimator_florence_placement_costs = flo_rn_fee_constant * estimator_rn_need_annually
-        intermdiate_flo_hourly_diff = estimator_florence_placement_costs / intermediate_labor_hours_needed * 3
-        intermediate_hourly_diff_agency_flo = estimator_labor_rate - estimator_current_rn_rate
-        estimator_total_savings = intermediate_labor_hours_needed * intermediate_hourly_diff_agency_flo
+        estimator_total_savings = estimator_agency_cost_3_yr - estimator_florence_placement_costs
         
         st.write(f"Annual RN Need: **{estimator_rn_need_annually:,.1f}**")
         st.write(f"Agency RN Labor Cost Over 3 Years: **${estimator_agency_cost_3_yr:,.2f}**")
