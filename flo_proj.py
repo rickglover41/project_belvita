@@ -72,9 +72,9 @@ def main():
         estimator_average_fte_per_nurse = st.number_input(label="Average FTE/Nurse", min_value=0.00, max_value=1.00, step=0.05, value=0.90)
         
         # estimator calculations
-        intermediate_labor_hours_needed = (estimator_labor_fte * 2080) * estimator_share_rn * 3
+        intermediate_labor_hours_needed = (estimator_labor_fte * 2080) * estimator_share_rn
         estimator_rn_need_annually = intermediate_labor_hours_needed / (2080 * estimator_average_fte_per_nurse)
-        estimator_agency_cost_3_yr = (estimator_labor_rate - estimator_current_rn_rate) * intermediate_labor_hours_needed
+        estimator_agency_cost_3_yr = (estimator_labor_rate - estimator_current_rn_rate) * intermediate_labor_hours_needed * 3
         estimator_florence_placement_costs = flo_rn_fee_constant * estimator_rn_need_annually
         intermediate_hourly_diff_agency_flo = (estimator_labor_rate - estimator_current_rn_rate) - (estimator_florence_placement_costs / intermediate_labor_hours_needed)
         estimator_total_savings = intermediate_labor_hours_needed * intermediate_hourly_diff_agency_flo
