@@ -65,9 +65,9 @@ def main():
         st.subheader("General Estimator")
         st.caption("Fill out the Contracted Labor Hourly Rate, Contracted Labor FTE, and Average Facility RN Labor Hourly Rate")
         
-        estimator_labor_rate = st.number_input(label="Contracted Labor Hourly Rate", min_value=0.00, max_value=1000.00, step=1.00, value=0.00)
-        estimator_labor_fte = st.number_input(label="Contracted Labor FTEs", min_value=0.0, max_value=20000.0, step=1.0, value=0.0)
-        estimator_current_rn_rate = st.number_input(label="Average Facility RN Labor Hourly Rate", min_value=0.00, max_value=0.00, value=0.00)
+        estimator_labor_rate = st.number_input(label="Contracted Labor Hourly Rate", min_value=0.00, max_value=1000.00, step=1.00, value=1.00)
+        estimator_labor_fte = st.number_input(label="Contracted Labor FTEs", min_value=0.0, max_value=20000.0, step=1.0, value=1.0)
+        estimator_current_rn_rate = st.number_input(label="Average Facility RN Labor Hourly Rate", min_value=0.00, max_value=1000.00, value=1.00)
         estimator_share_rn = st.number_input(label="Estimated RN Share of Contract Labor", min_value = 0.00, max_value=1.00, step=0.01, value=0.80)
         estimator_average_fte_per_nurse = st.number_input(label="Average FTE/Nurse", min_value=0.00, max_value=1.00, step=0.05, value=0.90)
         
@@ -80,10 +80,8 @@ def main():
         estimator_total_savings = intermediate_labor_hours_needed * intermediate_hourly_diff_agency_flo
         
         st.write(f"Annual RN Need: **{estimator_rn_need_annually:,.1f}**")
-        st.write("")
         st.write(f"Agency RN Labor Cost Over 3 Years: **${estimator_agency_cost_3_yr:,.2f}**")
-        st.write("")
-        st.write(f"Florence RN Placement Cost ($50,000 Per RN): **${estimator_florence_placement_costs:,.2f}**")
+        st.write(f"Florence RN Placement Cost (50,000 Per RN): **${estimator_florence_placement_costs:,.2f}**")
         st.write("")
         st.subheader(f"Total Estimated RN Staffing Savings Opportunity: ${estimator_total_savings:,.2f}")
         
