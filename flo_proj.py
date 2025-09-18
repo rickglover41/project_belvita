@@ -13,7 +13,7 @@ d_system_name = None
 d_data_sources = None
 
 # last revision info (only UPDATE when sources and/or pricing change)
-model_info = "Last revision on 9/16/2025"
+model_info = "Last revision on 9/17/2025"
 
 # sources text (UPDATE and/or ADD as needed)
 HCRIS_sources = "*Healthcare Cost Report Information System (HCRIS) FY2023 (https://tool.nashp.org/)"
@@ -37,9 +37,9 @@ class Florence:
         self.data_sources = data_sources
 
 # UPDATE class parameters as appropriate
-huh = Florence(clc=22450115.00, clh=152801.00, cl_fte=73.46, slr=74.94, rn_share_cl=rn_share_cl_constant, avg_fte_rn=avg_fte_rn_constant, flo_rn_fee=flo_rn_fee_constant, system_name='Howard University Hospital', data_sources=HCRIS_sources)
+huh = Florence(clc=22450115, clh=152801, cl_fte=73.46, slr=74.94, rn_share_cl=rn_share_cl_constant, avg_fte_rn=avg_fte_rn_constant, flo_rn_fee=flo_rn_fee_constant, system_name='Howard University Hospital', data_sources=HCRIS_sources)
 
-nb = Florence(clc=9309771.00, clh=61030.00, cl_fte=152.54, slr=88.32, rn_share_cl=rn_share_cl_constant, avg_fte_rn=avg_fte_rn_constant, flo_rn_fee=flo_rn_fee_constant, system_name='NorthBay Health', data_sources=HCRIS_sources)
+nb = Florence(clc=9309771, clh=61030, cl_fte=152.54, slr=88.32, rn_share_cl=rn_share_cl_constant, avg_fte_rn=avg_fte_rn_constant, flo_rn_fee=flo_rn_fee_constant, system_name='NorthBay Health', data_sources=HCRIS_sources)
 
 # functions
 def contracted_hourly(clc, clh):
@@ -74,8 +74,8 @@ def main():
     elif selected_dept == "NorthBay Health":
         default_values(nb)
 
-    direct_clc = st.sidebar.number_input(label="Direct Patient Care Contracted Labor Cost*", min_value=0.00, max_value=999999999999.99, step=1.00, value=d_clc)
-    direct_clh = st.sidebar.number_input(label="Direct Patient Care Contracted Labor Hours*", min_value=0.00, max_value=999999999999.99, step=1.00, value=d_clh)
+    direct_clc = st.sidebar.number_input(label="Direct Patient Care Contracted Labor Cost*", min_value=0, max_value=999999999999, step=1, value=d_clc)
+    direct_clh = st.sidebar.number_input(label="Direct Patient Care Contracted Labor Hours*", min_value=0, max_value=999999999999, step=1, value=d_clh)
     direct_cl_fte = st.sidebar.number_input(label="Direct Patient Care Contracted Labor FTE*", min_value=0.00, max_value=10000.00, step=1.00, value=d_cl_fte)
     direct_slr = st.sidebar.number_input(label="Direct Patient Care Labor Hourly Rate*", min_value=0.00, max_value=1000.00, step=1.00, value=d_slr)
     est_share_rn = st.sidebar.number_input(label="Estimated RN Share of Contract Labor", min_value = 0.00, max_value=1.00, step=0.01, value=d_rn_share_cl)
@@ -110,7 +110,7 @@ def main():
     st.write(f"Florence Hourly Differential (Fee Amortized) Over Non_Contracted Direct Patient Care Rate: **${flo_hourly_diff:,.2f}**")
     st.write(f"Florence RN Hourly Savings Over Agency RN: **${hourly_diff_agency_flo:,.2f}**")
     st.write("")
-    st.subheader(f"Total Estimated RN Staffing Savings Opportunity: **${total_savings_opp:,.2f}**")
+    st.subheader(f"Total Estimated RN Staffing Savings Opportunity: ${total_savings_opp:,.2f}")
     
 
 if __name__ == "__main__":
