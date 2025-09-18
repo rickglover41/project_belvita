@@ -75,7 +75,7 @@ def main():
         intermediate_labor_hours_needed = (estimator_labor_fte * 2080) * estimator_share_rn * 3
         estimator_rn_need_annually = intermediate_labor_hours_needed / (2080 * estimator_average_fte_per_nurse)
         estimator_agency_cost_3_yr = (estimator_labor_rate - estimator_current_rn_rate) * intermediate_labor_hours_needed
-        estimator_florence_placement_costs = flo_placement_cost * estimator_rn_need_annually
+        estimator_florence_placement_costs = flo_rn_fee_constant * estimator_rn_need_annually
         intermediate_hourly_diff_agency_flo = (estimator_labor_rate - estimator_current_rn_rate) - (estimator_florence_placement_costs / intermediate_labor_hours_needed)
         estimator_total_savings = intermediate_labor_hours_needed * intermediate_hourly_diff_agency_flo
         
