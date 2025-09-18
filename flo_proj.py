@@ -19,9 +19,9 @@ model_info = "Last revision on 9/16/2025"
 HCRIS_sources = "*Healthcare Cost Report Information System (HCRIS) FY2023 (https://tool.nashp.org/)"
 
 # constants (only UPDATE if necessary)
-rn_share_cl_constant = 0.8
-avg_fte_rn_constant = 0.9
-flo_rn_fee_constant = 50000
+rn_share_cl_constant = 0.80
+avg_fte_rn_constant = 0.90
+flo_rn_fee_constant = 50000.00
 
 # instantiate Florence Calculation
 class Florence:
@@ -37,9 +37,9 @@ class Florence:
         self.data_sources = data_sources
 
 # UPDATE class parameters as appropriate
-huh = Florence(clc=22450115, clh=152801, cl_fte=73.46, slr=74.94, rn_share_cl=rn_share_cl_constant, avg_fte_rn=avg_fte_rn_constant, flo_rn_fee=flo_rn_fee_constant, system_name='Howard University Hospital', data_sources=HCRIS_sources)
+huh = Florence(clc=22450115.00, clh=152801.00, cl_fte=73.46, slr=74.94, rn_share_cl=rn_share_cl_constant, avg_fte_rn=avg_fte_rn_constant, flo_rn_fee=flo_rn_fee_constant, system_name='Howard University Hospital', data_sources=HCRIS_sources)
 
-nb = Florence(clc=9309771, clh=61030, cl_fte=152.54, slr=88.32, rn_share_cl=rn_share_cl_constant, avg_fte_rn=avg_fte_rn_constant, flo_rn_fee=flo_rn_fee_constant, system_name='NorthBay Health', data_sources=HCRIS_sources)
+nb = Florence(clc=9309771.00, clh=61030.00, cl_fte=152.54, slr=88.32, rn_share_cl=rn_share_cl_constant, avg_fte_rn=avg_fte_rn_constant, flo_rn_fee=flo_rn_fee_constant, system_name='NorthBay Health', data_sources=HCRIS_sources)
 
 # functions
 def contracted_hourly(clc, clh):
@@ -80,7 +80,7 @@ def main():
     direct_cl_fte = st.sidebar.number_input(label="Direct Patient Care Contracted Labor FTE*", min_value=0.00, max_value=10000.00, step=1.00, value=d_cl_fte)
     direct_slr = st.sidebar.number_input(label="Direct Patient Care Labor Hourly Rate*", min_value=0.00, max_value=1000.00, step=1.00, value=d_slr)
     est_share_rn = st.sidebar.number_input(label="Estimated RN Share of Contract Labor", min_value = 0.00, max_value=1.00, step=0.01, value=d_rn_share_cl)
-    average_fte_per_nurse = st.sidebar.number_input(label="Average FTE/Nurse", min_value=0.0, max_value=1.0, step=0.1, value=d_avg_fte_rn)
+    average_fte_per_nurse = st.sidebar.number_input(label="Average FTE/Nurse", min_value=0.00, max_value=1.00, step=0.10, value=d_avg_fte_rn)
     # calculations for need - write these to the main page
     direct_patient_care_hourly_rate = direct_clc / direct_clh
     est_rn_contracted_labor_hrs_annually = direct_clh * est_share_rn
