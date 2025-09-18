@@ -67,8 +67,7 @@ def default_values(flo_class):
 def main():
     st.title("Florence Financial Impact")    st.caption(model_info)
     st.sidebar.header("Staffing/Financial Information")
-    
-    selected_dept = st.selectbox("Hospital/System:", ["Howard University Hospital", "NorthBay Health"])
+    selected_dept = st.sidebar.selectbox("Hospital/System:", ["Howard University Hospital", "NorthBay Health"])
 
     if selected_dept == "Howard University Hospital":
         default_values(huh)
@@ -96,9 +95,9 @@ def main():
     st.sidebar.caption("Data entries are defaulted from data sources, but can be edited to change the projections")
     st.sidebar.caption(d_data_sources)
 
-    st.subheader(d_system_name)
+    st.header(d_system_name)
     st.write("")
-    st.markdown("**[red]RN Needs and Agency Costs**")
+    st.subheader("RN Needs and Agency Costs")
     st.write(f"Direct Patient Care Contracted Labor Hourly Rate: **${direct_patient_care_hourly_rate:,.2f}**")
     st.write(f"Estimated RN Contracted Labor Hours Annually: **{est_rn_contracted_labor_hrs_annually:,.2f}**")
     st.write(f"Estimated RN Need Annually: **{est_rn_need_annually:,.2f}**")
@@ -106,12 +105,12 @@ def main():
     st.write(f"Agency Hours Used Over 3 Years (Flat): **{agency_hours_replaced:,.2f}**")
     st.write(f"Agency RN Cost Over 3 Years: **${agency_rn_diff_3_yr:,.2f}**")
     st.write("")
-    st.markdown("**[blue]How Florence Helps**")
+    st.subheader("How Florence Helps")
     st.write(f"Florence Placement Fee Per Nurse: **${flo_placement_cost:,.2f}**")
     st.write(f"Florence Hourly Differential (Fee Amortized) Over Non_Contracted Direct Patient Care Rate: **${flo_hourly_diff:,.2f}**")
     st.write(f"Florence RN Hourly Savings Over Agency RN: **${hourly_diff_agency_flo:,.2f}**")
     st.write("")
-    st.subheader(f"Total Estimated RN Staffing Savings Opportunity: ${total_savings_opp:,.2f}")
+    st.subheader(f"Total Estimated RN Staffing Savings Opportunity: **${total_savings_opp:,.2f}**")
     
 
 if __name__ == "__main__":
